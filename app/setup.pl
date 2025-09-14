@@ -6,7 +6,7 @@
 % astSaveResultsDir: diretório onde os resultados da análise serão salvos. (CRIADO CASO NÃO EXISTA)
 % Para modificar os diretórios mude o segundo parâmetro da função para um caminho terminado em '/'.
 configs :-
-    nb_setval(localArquivesDir, '../tests/'),
+    nb_setval(localArquivesDir, '../tests/Examples/'),
     nb_setval(astSaveResultsDir, '../ast_results/'),
     verifica_dirs.
 
