@@ -1,10 +1,16 @@
-:- module(setup, [configs/0]).
+:- module(setup, [configs/0, set_base_dirs/0]).
 :- set_prolog_flag(encoding, utf8).
 
 % Setup inicial do programa, definindo diretórios, etc.
 % localArquivesDir: diretório de leitura dos arquivos de teste local. (NECESSÁRIO EXISTENCIA PREVIA)
 % astSaveResultsDir: diretório onde os resultados da análise serão salvos. (CRIADO CASO NÃO EXISTA)
-% Para modificar os diretórios mude o segundo parâmetro da função para um caminho terminado em '/'.
+% Para modificar os diretórios mude o segundo parâmetro da função para um caminho terminado em '/' tendo como referencia o diretorio atual deste arquivo.
+set_base_dirs :-
+    write('rodou aqui'),
+    source_file(set_base_dirs, File), write(File),
+    file_directory_name(File, Dir),
+    working_directory(_, Dir).
+
 configs :-
     nb_setval(localArquivesDir, '../tests/'),
     nb_setval(astSaveResultsDir, '../ast_results/'),
