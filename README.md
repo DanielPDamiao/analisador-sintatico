@@ -1,4 +1,4 @@
-# Analisador Sintático em Haskell
+# Analisador Sintático em Prolog
 
 Projeto desenvolvido para a disciplina de Paradigmas de Linguagens de Programação, com foco educacional na implementação de um analisador léxico e sintático voltado para uma “sublinguagem” de Python.
 
@@ -19,20 +19,4 @@ A descrição formal do projeto pode ser encontrada no arquivo:
 
 ## :rocket: Execução
 
-```bash
-cabal run analisador
-```
-```bash
-"Analisador Léxico-Sintático (v0.1.0.0)"
-"Digite '--help' para main informações."
->>> [args]
-```
 
-Argumentos possíveis:
-```bash
-../path/arquivo.py          # análise normal, exibe ast visual no terminal
-../path/arquivo.py -s       # analisa e salva o resultado em ./ast_results/arquivo_ast.txt
---help                      # mostra esta ajuda
--tests                      # executa testes internos e salva em ./test/Logs/arquivo_ast.txt
-exit()                      # encerra o programa
-```
