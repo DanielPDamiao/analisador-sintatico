@@ -12,7 +12,7 @@ set_base_dirs :-
     working_directory(_, Dir).
 
 configs :-
-    nb_setval(localArquivesDir, '../tests/'),
+    nb_setval(localArquivesDir, '../tests/Examples/'),
     nb_setval(astSaveResultsDir, '../ast_results/'),
     verifica_dirs.
 
