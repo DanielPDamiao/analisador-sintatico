@@ -13,7 +13,7 @@ Projeto desenvolvido para a disciplina de Paradigmas de Linguagens de Programaç
 
 A descrição formal do projeto pode ser encontrada no arquivo:
 
-:arrow_right: [especificacao-projeto-plp.pdf](especificacao-projeto-plp.pdf)
+
 
 ---
 
