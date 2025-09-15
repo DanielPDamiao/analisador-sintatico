@@ -1,0 +1,19 @@
+[assign(x,div(add(unary(-,var(b)),sub(mult(var(b),num('2')),mult(mult(num('4'),var(a)),var(c)))),mult(num('2'),var(a))))]
+
+Assign x
+  └─Div
+    └─Add
+      └─Unary -
+        └─Var b
+      └─Sub
+        └─Mul
+          └─Var b
+          └─Num 2
+        └─Mul
+          └─Mul
+            └─Num 4
+            └─Var a
+          └─Var c
+    └─Mul
+      └─Num 2
+      └─Var a

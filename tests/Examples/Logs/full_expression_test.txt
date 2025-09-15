@@ -1,0 +1,38 @@
+[assign(foo_1,sub(add(div(sub(mult(var(x),var(y)),add(var(z),var(x))),sub(var(y),var(z))),div(mult(var(x),sub(var(y),var(z))),sub(add(var(x),var(y)),var(z)))),div(mult(add(var(x),var(y)),sub(var(z),var(y))),mult(var(x),var(z)))))]
+
+Assign foo_1
+  └─Sub
+    └─Add
+      └─Div
+        └─Sub
+          └─Mul
+            └─Var x
+            └─Var y
+          └─Add
+            └─Var z
+            └─Var x
+        └─Sub
+          └─Var y
+          └─Var z
+      └─Div
+        └─Mul
+          └─Var x
+          └─Sub
+            └─Var y
+            └─Var z
+        └─Sub
+          └─Add
+            └─Var x
+            └─Var y
+          └─Var z
+    └─Div
+      └─Mul
+        └─Add
+          └─Var x
+          └─Var y
+        └─Sub
+          └─Var z
+          └─Var y
+      └─Mul
+        └─Var x
+        └─Var z

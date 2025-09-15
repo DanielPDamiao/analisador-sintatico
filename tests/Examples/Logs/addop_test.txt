@@ -1,0 +1,8 @@
+[assign(y,sub(add(num('1'),num('3')),num('4')))]
+
+Assign y
+  └─Sub
+    └─Add
+      └─Num 1
+      └─Num 3
+    └─Num 4

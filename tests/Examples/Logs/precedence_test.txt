@@ -1,0 +1,10 @@
+[assign(z,add(mult(num('8'),num('9.8')),div(num('7'),num('2'))))]
+
+Assign z
+  └─Add
+    └─Mul
+      └─Num 8
+      └─Num 9.8
+    └─Div
+      └─Num 7
+      └─Num 2

@@ -1,0 +1,11 @@
+[assign(x,num('10')),assign(y,add(num('2'),sub(num('3'),var(x))))]
+
+Assign x
+  └─Num 10
+
+Assign y
+  └─Add
+    └─Num 2
+    └─Sub
+      └─Num 3
+      └─Var x

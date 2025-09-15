@@ -1,0 +1,6 @@
+[assign(x,add(num('1'),num('1')))]
+
+Assign x
+  └─Add
+    └─Num 1
+    └─Num 1

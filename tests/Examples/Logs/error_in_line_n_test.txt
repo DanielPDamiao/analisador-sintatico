@@ -1,0 +1,2 @@
+syntax_error("invalid syntax",4)
+SyntaxError: invalid syntax, line 4
