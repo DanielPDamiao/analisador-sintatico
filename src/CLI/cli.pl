@@ -26,7 +26,7 @@ execute(['--help']):-
             write('arquivo.py          # faz a análise padrão de um arquivo python\n'),
             write('arquivo.py -s       # faz a análise de um arquivo python e salva o resultado em ./ast_results\n'),
             write('--help              # mostra descrições dos comandos\n'),
-            write('-tests              # executa todos os testes de arquivos python internos e salva em ./test/Logs\n'),
+            write('-tests              # executa todos os testes de arquivos python internos e salva em ./test/Examples/Logs\n'),
             write('exit()              # encerra o analisador\n'),
             !.
 
