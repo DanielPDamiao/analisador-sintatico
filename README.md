@@ -46,8 +46,18 @@ Argumentos suportados:
 -tests                      # executa testes internos e salva em ./test/Logs/arquivo_ast.txt
 exit()                      # encerra o programa
 ```
+
+Features adicionadas e correções simples:
+```bash
+- Possibilidade de configurar o arquivo 'setup.pl' para mudar o diretório onde serão salvos os testes locais e o diretório onde será salvo a execução de analise com argumento '-s'.
+- Possibilidade de executar caminhos no padrão Windows.
+- Se a pasta de testes estiver vazia não vai encerrar seu programa de imediato.
+- Mais medidas de segurança em varias camadas da aplicação para evitar o máximo de problemas.
+- Maior especificidade em certos problemas facilitando o entendimento para o usuário.
+```
+
 <blockquote style="background-color: transparent; padding: 8px 14px; border-left: 4px solid rgba(0,0,0,0.35);">
 📝 <strong>Observação:</strong><br>
-O caminho (<code>path</code>) considerado na análise de arquivos é relativo à pasta <code>./app</code>.
+O caminho (<code>path</code>) considerado na análise de arquivos é relativo à pasta <code>./analisador-sintatico</code>.
 </blockquote>
 
