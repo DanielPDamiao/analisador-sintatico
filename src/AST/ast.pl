@@ -51,17 +51,6 @@ show_expr(unary(Op, E), Indent) :-
     I2 is Indent + 2,
     show_expr(E, I2).
 
-% Salva AST em arquivo
-save_ast(Path, AST) :-
-    setup_call_cleanup(
-        open(Path, write, Stream, [encoding(utf8)]),
-        (   write(Stream, AST),
-            nl(Stream)
-        ),
-        close(Stream)
-    ).
-
-
 % Auxiliar de indentação
 indent(0).
 indent(N) :-
@@ -69,6 +58,5 @@ indent(N) :-
     write(' '),
     N1 is N - 1,
     indent(N1).
-
 
 
