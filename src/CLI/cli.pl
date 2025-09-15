@@ -127,7 +127,7 @@ find_save_path(DirPath, ArquivePathAtom, SavePath) :-
             split_string(ArquivePathStr, "/\\", "", SubStrings), last(SubStrings, ArquiveStr),
             atom_string(ArquiveAtom, ArquiveStr),
             atom_concat(ArquiveName, '.py', ArquiveAtom), 
-            atom_concat(ArquiveName, '_test.txt', ArquiveTestName),
+            atom_concat(ArquiveName, '_ast.txt', ArquiveTestName),
             atom_concat(DirPath, ArquiveTestName, SavePath).
 
             
