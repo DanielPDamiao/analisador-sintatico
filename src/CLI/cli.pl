@@ -92,10 +92,9 @@ pick_py(Dir, [ArquiveRaw|Others], PythonArquives):-
                 pick_py(Dir, Others, Tail); 
             pick_py(Dir, Others, PythonArquives)).
 
-is_valid_py([Char, '.', 'p', 'y']) :- 
-            (member(Char, [' ', '.', '-']) -> false; true), !.
-is_valid_py([Char|Tail]) :-
-            (member(Char, [' ', '.', '-']) -> false; is_valid_py(Tail)).
+is_valid_py([_, '.', 'p', 'y']) :- !.
+is_valid_py([_|Tail]) :-
+            is_valid_py(Tail).
 
 is_valid_path(Path) :-
             (exists_file(Path) -> 
