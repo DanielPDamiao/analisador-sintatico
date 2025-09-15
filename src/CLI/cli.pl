@@ -98,10 +98,10 @@ is_valid_py([_|Tail]) :-
 
 is_valid_path(Path) :-
             (exists_file(Path) -> 
-                atom_string(AtomPath, Path),
-                atomic_list_concat(PathParts, '/', AtomPath),
-                last(PathParts, ArquiveRaw),
-                atom_chars(ArquiveRaw, Arquive),
+                split_string(Path, "/\\", "", SubStrings),
+                last(SubStrings, ArquiveRawStr),
+                atom_string(ArquiveRawAtom, ArquiveRawStr),
+                atom_chars(ArquiveRawAtom, Arquive),
                 (is_valid_py(Arquive) -> true;
                 write('Arquivo invalido. Tente --help para mais informações.\n'), false);
             write('Caminho não encontrado. Tente --help para mais informações.\n'), false).
@@ -122,9 +122,11 @@ runTests(DirPath, [ArquivePath|Rest]):-
                 runTests(DirPath, Rest));
             runTests(DirPath, Rest)).
 
-find_save_path(DirPath, ArquivePath, SavePath) :-
-            atomic_list_concat(DivPath, '/', ArquivePath), last(DivPath, Arquive),
-            atom_concat(ArquiveName, '.py', Arquive), 
+find_save_path(DirPath, ArquivePathAtom, SavePath) :-
+            atom_string(ArquivePathAtom, ArquivePathStr),
+            split_string(ArquivePathStr, "/\\", "", SubStrings), last(SubStrings, ArquiveStr),
+            atom_string(ArquiveAtom, ArquiveStr),
+            atom_concat(ArquiveName, '.py', ArquiveAtom), 
             atom_concat(ArquiveName, '_test.txt', ArquiveTestName),
             atom_concat(DirPath, ArquiveTestName, SavePath).
 
