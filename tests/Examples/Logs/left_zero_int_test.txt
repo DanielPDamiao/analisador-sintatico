@@ -1,2 +1,0 @@
-syntax_error("leading zeros in decimal integer literals are not permitted",1)
-SyntaxError: leading zeros in decimal integer literals are not permitted, line 1

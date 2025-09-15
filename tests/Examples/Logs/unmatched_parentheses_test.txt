@@ -1,2 +1,0 @@
-syntax_error("invalid syntax",3)
-SyntaxError: invalid syntax, line 3

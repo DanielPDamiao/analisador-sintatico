@@ -29,14 +29,14 @@ line(AST, LineIn) --> expr(AST, LineIn).
 
 % Stmt = ident "=" Expr
 stmt(assign(Ident, Expr), Line) --> 
-    (['TkIdent', Ident] -> [] ; { throw(syntax_error("invalid syntax", Line)) }), 
-    (['TkAssign'] -> [] ; { throw(syntax_error("invalid syntax", Line)) }),
+    ['TkIdent', Ident, 'TkAssign'],
     expr(Expr, Line).
 
 % Expr = Term Expr'
 expr(Expr, Line) --> 
     term(Term, Line),
     expr_rest(Term, Expr, Line).
+expr(_, Line) --> { throw(syntax_error("invalid syntax", Line)) }.
 
 % Expr' = Addop Term Expr' | Ɛ
 expr_rest(Left, Expr, Line) -->
@@ -60,7 +60,7 @@ term_rest(Left, Term, Line) -->
 term_rest(Term, Term, _) --> [].
 
 % Factor = "(" Expr ")" | Unary | Value
-factor(0, _) --> ['TkOpenPar'], ['TkClosePar'].
+factor(num(0), _) --> ['TkOpenPar'], ['TkClosePar'].
 factor(Expr, Line) -->
     ['TkOpenPar'],
     (expr(Expr, Line) -> [] ; { throw(syntax_error("\'(\' was never closed", Line)) }),
@@ -70,12 +70,12 @@ factor(_, Line) -->
     ['TkClosePar'],
     { throw(syntax_error("unmatched \')\'", Line)) }.
 
-factor(Unary, _) --> unary(Unary).
+factor(Unary, Line) --> unary(Unary, Line).
 factor(Value, _) --> value(Value).
 
 % Unary = "-" Factor | "+" Factor
-unary(unary(-, Value)) --> ['TkMinus'], value(Value).
-unary(unary(+, Value)) --> ['TkPlus'], value(Value).
+unary(unary(-, Value), Line) --> ['TkMinus'], factor(Value, Line).
+unary(unary(+, Value), Line) --> ['TkPlus'], factor(Value, Line).
 
 % Value = number | ident
 value(num(Num)) --> ['TkNumber', Num].
