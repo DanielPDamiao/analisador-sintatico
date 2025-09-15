@@ -63,7 +63,7 @@ execute([PathRaw, '-s']):-
             (is_valid_path(PathRaw) ->
                 nb_getval(astSaveResultsDir, Dir),
                 find_save_path(Dir, PathRaw, SavePath),
-                write('Analisando...\n'),
+                write('Analisando e salvando...\n'),
                 make_directory_path(Dir),
                 (catch(
                     lex_from_file(PathRaw, Tokens), 
